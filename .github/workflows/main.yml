@@ -25,9 +25,9 @@ jobs:
 
     - name: Build and Push Docker Image
       env:
-        DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-        DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
+        USERNAME: ${{ secrets.USERNAME }}
+        PASSWORD: ${{ secrets.PASSWORD }}
       run: |
         docker build -t aftabzaheer23/sample_python .
-        echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin
+        echo $PASSWORD | docker login -u $USERNAME --password-stdin
         docker push aftabzaheer23/sample_python
